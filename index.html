@@ -101,60 +101,69 @@ footer {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  background: #000;
 }
 
+/* The video fills the hero box */
 .hero video{
   width: 100%;
-  max-width: none;
-  margin: 0;
-  border-radius: 0;
+  height: auto;
   display: block;
 }
 
+/* Overlay sits on top but does NOT block controls */
 .hero-overlay{
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.6));
+  inset: 0;
+  pointer-events: none; /* lets you click the video controls */
+  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 26px 22px;
 }
 
+/* Title slightly ABOVE center */
 .hero-overlay h1{
-  font-size: clamp(32px,5vw,52px);
+  margin: 0;
+  margin-top: 18px;              /* pushes it down a bit from the top */
+  font-size: clamp(28px, 4.6vw, 48px);
   font-weight: 800;
-  margin-bottom: 15px;
+  text-shadow: 0 8px 24px rgba(0,0,0,.65);
 }
 
+/* Subtitle slightly BELOW title */
 .hero-overlay p{
-  max-width: 650px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #e2e8f0;
+  margin: 14px 0 0;
+  max-width: 720px;
+  font-size: clamp(14px, 1.7vw, 18px);
+  line-height: 1.55;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 8px 22px rgba(0,0,0,.65);
 }
 
+/* Make sure controls are visible and not hidden by overlay */
+.hero video::-webkit-media-controls{
+  position: relative;
+  z-index: 3;
+}
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+  <div class="hero">
+  <video autoplay muted loop playsinline controls>
     <source src="video.mp4" type="video/mp4">
   </video>
-
   <div class="hero-overlay">
     <h1>Executive Decision Intelligence</h1>
-    <p>
-      BriefIQ transforms messy business inputs into clear executive summaries,
-      visible risks, and actionable next steps.
-    </p>
+    <p>BriefIQ transforms messy business inputs into clear executive summaries, visible risks, and actionable next steps.</p>
   </div>
 </div>
 <div class="section">
