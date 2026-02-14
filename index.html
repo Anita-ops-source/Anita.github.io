@@ -101,38 +101,48 @@ footer {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
-  background: #000;
+  background:#000;
 }
 
-/* The video fills the hero box */
 .hero video{
   width: 100%;
-  height: auto;
   display: block;
 }
 
-/* Overlay sits on top but does NOT block controls */
+/* overlay covers video but allows clicking controls */
 .hero-overlay{
   position: absolute;
   inset: 0;
-  pointer-events: none; /* lets you click the video controls */
-  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 26px 22px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,.30), rgba(0,0,0,.55));
 }
 
-/* Title slightly ABOVE center */
+/* Title positioned higher */
 .hero-overlay h1{
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
-  margin-top: 18px;              /* pushes it down a bit from the top */
-  font-size: clamp(28px, 4.6vw, 48px);
+  width: 90%;
+  font-size: clamp(22px, 3.6vw, 38px);
   font-weight: 800;
-  text-shadow: 0 8px 24px rgba(0,0,0,.65);
+  text-shadow: 0 8px 22px rgba(0,0,0,.7);
 }
 
+/* Subtitle positioned lower */
+.hero-overlay p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  width: min(720px, 92%);
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.55;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 8px 20px rgba(0,0,0,.7);
+}
 /* Subtitle slightly BELOW title */
 .hero-overlay p{
   margin: 14px 0 0;
@@ -155,17 +165,15 @@ footer {
 
 <div class="hero">
   <video autoplay muted loop playsinline controls>
-  <source src="video.mp4" type="video/mp4">
-</video>
-  <div class="hero">
-  <video autoplay muted loop playsinline controls>
     <source src="video.mp4" type="video/mp4">
   </video>
+
   <div class="hero-overlay">
     <h1>Executive Decision Intelligence</h1>
     <p>BriefIQ transforms messy business inputs into clear executive summaries, visible risks, and actionable next steps.</p>
   </div>
 </div>
+
 <div class="section">
  <a href="about.html" class="nav-btn">
   Learn More About BriefIQ →
