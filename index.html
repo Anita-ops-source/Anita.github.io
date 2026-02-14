@@ -84,21 +84,79 @@ footer {
     font-size: 14px;
     color: #94a3b8;
 }
+  video {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* ===== HERO OVERLAY STYLES ===== */
+.hero{
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+
+.hero video{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  display: block;
+}
+
+.hero-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-overlay h1{
+  font-size: clamp(32px,5vw,52px);
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.hero-overlay p{
+  max-width: 650px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Executive Decision Intelligence</h1>
-<p>BriefIQ turns messy inputs into clear, structured executive summaries, risks, and action plans.</p>
-</header>
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-<!-- AI VIDEO -->
-<video autoplay muted loop playsinline controls>
-  <source src="video.mp4" type="video/mp4">
-</video>
-
+  <div class="hero-overlay">
+    <h1>Executive Decision Intelligence</h1>
+    <p>
+      BriefIQ transforms messy business inputs into clear executive summaries,
+      visible risks, and actionable next steps.
+    </p>
+  </div>
+</div>
 <div class="section">
  <a href="about.html" class="nav-btn">
   Learn More About BriefIQ →
